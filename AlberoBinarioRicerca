@@ -1,0 +1,73 @@
+#include <iostream>
+
+template <typename T>
+class AlberoBinario {
+private:
+    T nodi[100];
+public:
+    AlberoBinario(){
+        for (int i = 0; i < 100; i++){
+            nodi[i] = -1; //inizializza tutti i nodi
+        }
+    }
+    
+    bool alberoVuoto() const{
+        for (int i = 0; i < 100; i++){
+            if (nodi[i] != -1){
+                return false; //restituisce false se c'è almeno un elemento nell'albero
+            }
+            
+        }
+        else return true; //restituisce vero se l'albero è vuoto
+    }
+    
+    void insRadice(const T& valore){
+        if (!alberoVuoto()){
+            nodi[0] == valore; //inserisce valore nella radice
+        }
+    }
+    T radice() const{
+        if (!alberoVuoto()){
+            return nodi[0]; //restituisce la radice
+        }
+        else{ 
+         
+          std::cout <<"L'albero è vuoto\n";
+    
+        }
+    }
+    bool isFoglia(int i) const{
+        if (!alberoVuoto){
+            int sinistro = 2i + 1;
+            int destro = 2i + 2;
+            return nodi[sinistro] == -1 && nodi[destro] == -1; //il nodo è foglia
+            
+        }
+        else return false;
+    }
+    int figlioSinistro(int i) const{
+        if (!alberoVuoto()){
+            return i = 2i + 1;//restituisce il figlio sinistro
+        }
+    }
+    int figlioDestro(int i) const{
+        if (!alberoVuoto()){
+            return i = 2i + 2;//restituisce il figlio destro
+        }
+    }
+    void insFiglioSinistro(int i, const T& valore){
+        if (!alberoVuoto()){
+            nodi[2i + 1] == valore; //inserisce figlio sinistro
+        }
+    }
+    void insFiglioDestro(int i, const T& valore){
+        if (!alberoVuoto()){
+            nodi[2i + 2] == valore; //inserisce figlio destro
+        }
+    }
+    void rimuovi(int indice);
+    
+    void stampa() const{
+        std::cout<<"POS " <<i<<", Valore: " << nodi[i] <<", Figlio sinistro: " <<nodi[2i+1]<<", Figlio Destro: " <<nodi[2i+2]<<;
+    }
+};
